@@ -33,8 +33,8 @@ destino_id = -1002678503492
 # 🔁 Substituições
 bot_antigo_regex = r"@\w+"
 link_antigo_regex = r"https://t.me/\w+"
-bot_novo = "@atendenteana_bot"
-link_novo = "https://t.me/atendenteana_bot"
+bot_novo = "@amigosdaanabot"
+link_novo = "https://t.me/amigosdaanabot"
 
 grouped_processados = set()
 
