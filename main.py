@@ -27,7 +27,7 @@ api_hash = os.environ.get("API_HASH")
 client = TelegramClient("session2", api_id, api_hash)
 
 # 🎯 Grupos
-origens = [-1002494185789, -1002276167122, -1002611991977, -1002522894819, -1002661362082]
+origens = [-1002494185789, -1002276167122, -1002611991977, -1002522894819, -1002661362082, -1002461792901]
 destino_id = -1002678503492
 
 # 🔁 Substituições
