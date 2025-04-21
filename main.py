@@ -34,7 +34,7 @@ destino_id = -1002678503492
 bot_antigo_regex = r"@\w+"
 link_antigo_regex = r"https://t\.me/\S+"
 bot_novo = "@amigosdaanavip_bot"
-link_novo = "https://t.me/amigosdaanavipbot"
+link_novo = "https://t.me/amigosdaanavip_bot"
 
 grouped_processados = set()
 
