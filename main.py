@@ -79,4 +79,14 @@ async def handler(event):
             print("📸 Mídia única detectada.")
             await client.send_file(destino_id, msg.media, caption=nova_legenda, buttons=botao)
         else:
-            print("⚠️ Ignorado (
+            print("⚠️ Ignorado (sem mídia válida).")
+    except Exception as e:
+        print(f"❌ Erro ao processar mensagem: {e}")
+
+# 🚀 Iniciar bot com reconexão segura
+async def main():
+    print("🤖 Bot rodando com botão e ping automático no Railway!")
+    await client.start()
+    await client.run_until_disconnected()
+
+client.loop.run_until_complete(main())
