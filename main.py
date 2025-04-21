@@ -42,7 +42,7 @@ grouped_processados = set()
 def limpar_grouped():
     grouped_processados.clear()
     print("♻️ Limpeza de grouped_processados feita.")
-    Timer(600, limpar_grouped).start()  # a cada 10 minutos
+    Timer(600, limpar_grouped).start()
 
 limpar_grouped()
 
@@ -52,13 +52,14 @@ async def handler(event):
         msg = event.message
         texto_original = msg.message or ""
 
-        # Substituir @ antigo e qualquer link t.me
+        # Substituir menções e links antigos
         nova_legenda = re.sub(bot_antigo_regex, bot_novo, texto_original)
         nova_legenda = re.sub(link_antigo_regex, link_novo, nova_legenda)
 
         # Botão personalizado
         botao = [[Button.url("🔥 Assinar VIP com Desconto 🔥", link_novo)]]
 
+        # ÁLBUM
         if msg.grouped_id:
             if msg.grouped_id in grouped_processados:
                 return
@@ -72,12 +73,22 @@ async def handler(event):
 
             if media_files:
                 print(f"🎯 Enviando álbum com {len(media_files)} mídias...")
-                await client.send_file(destino_id, media_files, caption=nova_legenda, buttons=botao)
+                await client.send_file(
+                    destino_id,
+                    media_files,
+                    caption=nova_legenda,
+                    buttons=botao
+                )
             else:
                 print("⚠️ Álbum sem mídias.")
         elif msg.photo or msg.video:
             print("📸 Mídia única detectada.")
-            await client.send_file(destino_id, msg.media, caption=nova_legenda, buttons=botao)
+            await client.send_file(
+                destino_id,
+                msg.media,
+                caption=nova_legenda,
+                buttons=botao
+            )
         else:
             print("⚠️ Ignorado (sem mídia válida).")
     except Exception as e:
