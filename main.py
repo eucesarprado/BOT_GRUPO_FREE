@@ -24,7 +24,7 @@ manter_online()
 # 🔐 Credenciais da API (do Railway > Variables)
 api_id = int(os.environ.get("API_ID"))
 api_hash = os.environ.get("API_HASH")
-client = TelegramClient("session2", api_id, api_hash)
+client = TelegramClient("session", api_id, api_hash)
 
 # 🎯 Grupos
 origens = [-1002494185789, -1002276167122, -1002611991977, -1002522894819, -1002661362082, -1002461792901]
