@@ -52,14 +52,13 @@ async def handler(event):
         msg = event.message
         texto_original = msg.message or ""
 
-        # Substituir menções e links antigos por link/menção nova
+        # Substituir @ antigo e qualquer link t.me
         nova_legenda = re.sub(bot_antigo_regex, bot_novo, texto_original)
         nova_legenda = re.sub(link_antigo_regex, link_novo, nova_legenda)
 
         # Botão personalizado
         botao = [[Button.url("🔥 Assinar VIP com Desconto 🔥", link_novo)]]
 
-        # ÁLBUM
         if msg.grouped_id:
             if msg.grouped_id in grouped_processados:
                 return
@@ -76,19 +75,8 @@ async def handler(event):
                 await client.send_file(destino_id, media_files, caption=nova_legenda, buttons=botao)
             else:
                 print("⚠️ Álbum sem mídias.")
-        # MÍDIA ÚNICA
         elif msg.photo or msg.video:
             print("📸 Mídia única detectada.")
             await client.send_file(destino_id, msg.media, caption=nova_legenda, buttons=botao)
         else:
-            print("⚠️ Ignorado (sem mídia válida).")
-    except Exception as e:
-        print(f"❌ Erro ao processar mensagem: {e}")
-
-# 🚀 Iniciar bot com reconexão segura
-async def main():
-    print("🤖 Bot rodando com botão e ping automático no Railway!")
-    await client.start()
-    await client.run_until_disconnected()
-
-client.loop.run_until_complete(main())
+            print("⚠️ Ignorado (
