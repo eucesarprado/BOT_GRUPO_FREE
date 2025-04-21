@@ -32,7 +32,7 @@ destino_id = -1002678503492
 
 # 🔁 Substituições
 bot_antigo_regex = r"@\w+"
-link_antigo_regex = r"https://t.me/\w+"
+link_antigo_regex = r"https://t\.me/\S+"
 bot_novo = "@amigosdaanabot"
 link_novo = "https://t.me/amigosdaanabot"
 
@@ -52,7 +52,7 @@ async def handler(event):
         msg = event.message
         texto_original = msg.message or ""
 
-        # Substituir menções antigas
+        # Substituir menções e links antigos por link/menção nova
         nova_legenda = re.sub(bot_antigo_regex, bot_novo, texto_original)
         nova_legenda = re.sub(link_antigo_regex, link_novo, nova_legenda)
 
