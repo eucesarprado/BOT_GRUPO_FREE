@@ -27,14 +27,14 @@ api_hash = os.environ.get("API_HASH")
 client = TelegramClient("session", api_id, api_hash)
 
 # 🎯 Grupos
-origens = [-1002494185789, -1002276167122, -1002611991977, -1002522894819, -1002661362082, -1002461792901]
+origens = [-1001402642840, -4610792742]
 destino_id = -1002678503492
 
 # 🔁 Substituições
 bot_antigo_regex = r"@\w+"
 link_antigo_regex = r"https://t\.me/\S+"
-bot_novo = "@amigosdaanavip_bot"
-link_novo = "https://t.me/amigosdaanavip_bot"
+bot_novo = "@BRVAZADOSVIP_BOT"
+link_novo = "https://t.me/BRVAZADOSVIP_BOT"
 
 grouped_processados = set()
 
@@ -56,8 +56,6 @@ async def handler(event):
         nova_legenda = re.sub(bot_antigo_regex, bot_novo, texto_original)
         nova_legenda = re.sub(link_antigo_regex, link_novo, nova_legenda)
 
-        # Botão personalizado
-        botao = [[Button.url("🔥 Assinar VIP com Desconto 🔥", link_novo)]]
 
         # ÁLBUM
         if msg.grouped_id:
