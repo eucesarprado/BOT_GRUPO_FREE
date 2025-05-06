@@ -56,6 +56,9 @@ async def handler(event):
         nova_legenda = re.sub(bot_antigo_regex, bot_novo, texto_original)
         nova_legenda = re.sub(link_antigo_regex, link_novo, nova_legenda)
 
+          # Botão personalizado
+        botao = [[Button.url("🔥 Assinar VIP com Desconto 🔥", link_novo)]]
+
 
         # ÁLBUM
         if msg.grouped_id:
