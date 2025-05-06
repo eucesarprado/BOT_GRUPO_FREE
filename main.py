@@ -28,7 +28,7 @@ client = TelegramClient("session", api_id, api_hash)
 
 # 🎯 Grupos
 origens = [-1001402642840, -4610792742]
-destino_id = -1002678503492
+destino_id = -1002569235487
 
 # 🔁 Substituições
 bot_antigo_regex = r"@\w+"
